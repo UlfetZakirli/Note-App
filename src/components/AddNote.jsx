@@ -1,3 +1,4 @@
+import { useState } from "react"
 
 const AddNote = ({ handleAddNote }) => {
     const [noteText, setNoteText] = useState('')
