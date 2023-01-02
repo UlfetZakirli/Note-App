@@ -1,13 +1,15 @@
-import { MdSearch } from "react-icons/md"
+import { useState } from "react";
+import { BiSearchAlt } from "react-icons/bi";
+const Search = ({handleSearchInput}) => {
 
-const Search = ({ handleSearchNote }) => {
+
     return (
         <div className="search">
-            <MdSearch className="search-icons" size="1.3rem" />
+            <BiSearchAlt size="1.3rem" />
             <input
                 type="text"
-                placeholder="type to search..."
-                onChange={(e) => handleSearchNote(e.target.value)}
+                placeholder="Type to search..."
+                onChange={(e) => handleSearchInput(e.target.value)}
             />
         </div>
     )

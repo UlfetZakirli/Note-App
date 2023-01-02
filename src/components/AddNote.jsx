@@ -1,19 +1,18 @@
 import { useState } from "react"
 
 const AddNote = ({ handleAddNote }) => {
-    const [noteText, setNoteText] = useState('')
-    const characterLimit = 200
-
-    const handleChange = (e) => {
-        if (characterLimit - e.target.value.length >= 0) {
-            setNoteText(e.target.value)
+    const [noteText, setNoteText] = useState("")
+    const MaxRemining = 200
+    const handleSaveBtn = () => {
+        if (noteText.trim().length) {
+            handleAddNote(noteText)
         }
+        setNoteText('')
     }
 
-    const handleSaveBtn = () => {
-        if (noteText.trim().length > 0) {
-            handleAddNote(noteText)
-            setNoteText('')
+    const handleChange = (e) => {
+        if (MaxRemining - e.target.value.length >= 0) {
+            setNoteText(e.target.value)
         }
     }
     return (
@@ -24,9 +23,10 @@ const AddNote = ({ handleAddNote }) => {
                 placeholder="Type to add a note..."
                 value={noteText}
                 onChange={handleChange}
-            ></textarea>
+
+            />
             <div className="note-footer">
-                <small>{characterLimit - noteText.length} Remaining</small>
+                <small>{MaxRemining - noteText.length} Remining</small>
                 <button onClick={handleSaveBtn} className="save">Save</button>
             </div>
         </div>
